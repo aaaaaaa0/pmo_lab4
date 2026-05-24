@@ -11,8 +11,8 @@ pipeline {
                 sh '''
                     python3 -m venv venv
                     . venv/bin/activate
-                    pip install --upgrade pip
-                    pip install -r requirements.txt
+                    pip install --upgrade pip --trusted-host pypi.org --trusted-host files.pythonhosted.org
+                    pip install -r requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org
                 '''
             }
         }
