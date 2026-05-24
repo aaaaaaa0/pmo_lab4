@@ -1,0 +1,78 @@
+Running from: /usr/share/java/jenkins.war
+webroot: /root/.jenkins/war
+2026-05-24 08:29:27.885+0000 [id=1]	INFO	winstone.Logger#logInternal: Beginning extraction from war file
+2026-05-24 08:29:27.976+0000 [id=1]	WARNING	o.e.j.s.handler.ContextHandler#setContextPath: Empty contextPath
+2026-05-24 08:29:28.050+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: jetty-10.0.20; built: 2024-01-29T20:46:45.278Z; git: 3a745c71c23682146f262b99f4ddc4c1bc41630c; jvm 17.0.18+8-Ubuntu-1
+2026-05-24 08:29:28.412+0000 [id=1]	INFO	o.e.j.w.StandardDescriptorProcessor#visitServlet: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2026-05-24 08:29:28.471+0000 [id=1]	INFO	o.e.j.s.s.DefaultSessionIdManager#doStart: Session workerName=node0
+2026-05-24 08:29:29.508+0000 [id=1]	INFO	hudson.WebAppMain#contextInitialized: Jenkins home directory: /root/.jenkins found at: $user.home/.jenkins
+2026-05-24 08:29:29.638+0000 [id=1]	INFO	o.e.j.s.handler.ContextHandler#doStart: Started w.@8ab78bc{Jenkins v2.452.3,/,file:///root/.jenkins/war/,AVAILABLE}{/root/.jenkins/war}
+2026-05-24 08:29:29.656+0000 [id=1]	INFO	o.e.j.server.AbstractConnector#doStart: Started ServerConnector@45afc369{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2026-05-24 08:29:29.676+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: Started Server@f0f2775{STARTING}[10.0.20,sto=0] @2374ms
+2026-05-24 08:29:29.679+0000 [id=26]	INFO	winstone.Logger#logInternal: Winstone Servlet Engine running: controlPort=disabled
+2026-05-24 08:29:29.971+0000 [id=33]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+2026-05-24 08:29:30.054+0000 [id=31]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+2026-05-24 08:29:31.375+0000 [id=31]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+2026-05-24 08:29:31.382+0000 [id=35]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+2026-05-24 08:29:31.397+0000 [id=36]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+2026-05-24 08:29:31.765+0000 [id=32]	INFO	jenkins.InitReactorRunner$1#onAttained: System config loaded
+2026-05-24 08:29:31.766+0000 [id=32]	INFO	jenkins.InitReactorRunner$1#onAttained: System config adapted
+2026-05-24 08:29:31.767+0000 [id=34]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+2026-05-24 08:29:31.770+0000 [id=34]	INFO	jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2026-05-24 08:29:31.837+0000 [id=32]	INFO	jenkins.install.SetupWizard#init: 
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+6d1dbe331c434d1ab44810539a29f667
+
+This may also be found at: /root/.jenkins/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+2026-05-24 08:29:52.244+0000 [id=32]	WARNING	hudson.model.UpdateCenter#updateDefaultSite: Upgrading Jenkins. Failed to update the default Update Site 'default'. Plugin upgrades may fail.
+java.net.SocketTimeoutException: Connect timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:551)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:533)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:638)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1262)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1148)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1717)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1641)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:217)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:212)
+	at hudson.model.UpdateCenter.updateDefaultSite(UpdateCenter.java:2699)
+	at jenkins.install.SetupWizard.init(SetupWizard.java:208)
+	at jenkins.install.InstallState$InitialSecuritySetup.initializeState(InstallState.java:182)
+	at jenkins.model.Jenkins.setInstallState(Jenkins.java:1148)
+	at jenkins.install.InstallUtil.proceedToNextStateFrom(InstallUtil.java:98)
+	at jenkins.install.InstallState$Unknown.initializeState(InstallState.java:87)
+	at jenkins.model.Jenkins$15.run(Jenkins.java:3589)
+	at org.jvnet.hudson.reactor.TaskGraphBuilder$TaskImpl.run(TaskGraphBuilder.java:177)
+	at org.jvnet.hudson.reactor.Reactor.runTask(Reactor.java:305)
+	at jenkins.model.Jenkins$5.runTask(Jenkins.java:1175)
+	at org.jvnet.hudson.reactor.Reactor$2.run(Reactor.java:221)
+	at org.jvnet.hudson.reactor.Reactor$Node.run(Reactor.java:120)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:68)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-05-24 08:29:52.248+0000 [id=32]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
+2026-05-24 08:29:52.273+0000 [id=25]	INFO	hudson.lifecycle.Lifecycle#onReady: Jenkins is fully up and running
