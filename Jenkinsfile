@@ -1,22 +1,21 @@
 pipeline {
     agent any
     stages {
-        stage('Clone repository') {
-            steps {
-                checkout scm
-            }
-        }
-        stage('Setup environment') {
+        stage('Setup Environment') {
             steps {
                 sh '''
+                    # Удаляем старую папку с виртуальным окружением, чтобы начать с чистого листа
+                    rm -rf venv
                     python3 -m venv venv
                     . venv/bin/activate
-                    pip install --upgrade pip --trusted-host pypi.org --trusted-host files.pythonhosted.org
-                    pip install -r requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org
+                    # Обновляем pip, игнорируя кэш, чтобы избежать ошибок с хешами
+                    python -m pip install --upgrade pip --no-cache-dir
+                    # Устанавливаем нужные библиотеки
+                    pip install --no-cache-dir pandas numpy scikit-learn scipy mlflow fastapi uvicorn joblib
                 '''
             }
         }
-        stage('Download data') {
+        stage('Download Data') {
             steps {
                 sh '''
                     . venv/bin/activate
@@ -24,7 +23,7 @@ pipeline {
                 '''
             }
         }
-        stage('Train model') {
+        stage('Train Model') {
             steps {
                 sh '''
                     . venv/bin/activate
@@ -42,7 +41,7 @@ pipeline {
                 '''
             }
         }
-        stage('Health check') {
+        stage('Health Check') {
             steps {
                 sh '''
                     sleep 5
