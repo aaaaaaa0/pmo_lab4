@@ -11,8 +11,7 @@ pipeline {
                 sh '''
                     python3 -m venv venv
                     . venv/bin/activate
-                    pip install --upgrade pip
-                    pip install -r requirements.txt
+                    pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pandas numpy scikit-learn scipy mlflow fastapi uvicorn joblib
                 '''
             }
         }
